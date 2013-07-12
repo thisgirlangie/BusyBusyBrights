@@ -6,22 +6,19 @@ Hackbright class assignment:
 Here are the types for said table columns:
 
 Users
------
-id:int
-email:string
-password:string
+* id:int
+* email:string
+* password:string
 
 Posts
------
-id:int
-title:string
-body:text
-user_id:int
-created_at:date
+* id:int
+* title:string
+* body:text
+* user_id:int
+* created_at:date
 
 Votes
------
-id:int
-user_id:int
-post_id:int
-value:int
+* id:int
+* user_id:int
+* post_id:int
+* value:int
