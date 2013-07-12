@@ -12,5 +12,21 @@ def view_all_events():
     html = render_template("events.html", posts=posts)
     return html
 
+# ADD EVENT
+@app.route("/add_event")
+def view_add_event_form():
+    html = render_template("add_event.html")
+    return html
+
+@app.route("/add_event_fx")
+def add_event():
+    model.connect_to_db()
+    title = request.args.get("title")
+    body = request.args.get("body")
+    user_id = request.args.get("user_id")
+    created_at = request.args.get("datestamp")
+    event = model.add_new_post(title, body, user_id, created_at)
+    return "Successfully added an event!"
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -4,18 +4,20 @@
 import sqlite3
 import re
 
+from datetime import datetime
+
 DB = None
 CONN = None
 
-def add_new_user(id, email, password):
-    query = """INSERT INTO Users VALUES (?,?,?)"""
-    DB.execute(query, (id, email, password))
+def add_new_user(email, password):
+    query = """INSERT INTO Users VALUES (?,?)"""
+    DB.execute(query, (email, password))
     CONN.commit()
-    return "Successfully added user #%s!" % (id)
+    return "Successfully added user!" 
 
-def add_new_post(id, title, body, user_id, created_at):
-    query = """INSERT INTO Posts VALUES (?,?,?,?,?)"""
-    DB.execute(query, (id, title, body, user_id, created_at))
+def add_new_post(title, body, user_id, datestamp):
+    query = """INSERT INTO Posts (title, body, user_id, created_at) VALUES (?,?,?,?)"""
+    DB.execute(query, (title, body, user_id, datetime.now()))
     CONN.commit()
     return "Successfully added post!"
 
