@@ -1,14 +1,16 @@
-<html>
-<body>
+{% extends 'base.html' %}
+
+{% block body %}
+
 <h1>Add an Event</h1>
 <form action="/add_event_fx">
     <label for="title">Event Name </label>
         <input type="text" name="title" /><br /><br />
     <label for="body">Description </abel>
         <input type="text" name="body" /><br /><br />
-    <label for="user_id">Author's ID # </label>
+    <label for="user_id">Student ID # </label>
         <input type="text" name="user_id"><br /><br />
     <input type="submit">
 </form>
-</body>
-</html>
+
+{% endblock %}

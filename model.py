@@ -10,17 +10,15 @@ DB = None
 CONN = None
 
 def add_new_user(email, password):
-    query = """INSERT INTO Users VALUES (?,?)"""
+    query = """INSERT INTO Users (email, password) VALUES (?,?)"""
     DB.execute(query, (email, password))
     CONN.commit()
-    return "Successfully added user!" 
 
 def add_new_post(title, body, user_id, datestamp):
     query = """INSERT INTO Posts (title, body, user_id, created_at) VALUES (?,?,?,?)"""
     DB.execute(query, (title, body, user_id, datetime.now()))
     CONN.commit()
-    return "Successfully added post!"
-
+    
 def view_all_posts():
     query = """SELECT * FROM Posts"""
     DB.execute(query, ())

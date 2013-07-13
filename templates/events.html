@@ -1,8 +1,14 @@
-<html>
-<body>
-{% for post in posts %}
-<h1>{{ post[1] }}</h1> <!-- this is the post title --> 
-{{ post[2] }}<br/> <!-- this is the post body -->
-{% endfor %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <b>Hackbrights!</b> You can <a href="/add_event">add an event</a>, but first <a href="/register">register</a>.<br />
+    <h1>Bright Events</h1>
+    {% for post in posts %}
+        <h2>{{ post[1] }}</h2> <!-- this is the post title --> 
+        {{ post[2] }}<br/> <!-- this is the post body -->
+    {% endfor %}
+    <br />
+    <b>Still don't see what you're looking for?</b> <a href="/add_event">Add your event here for Brightlings!</a>
+
+{% endblock %}

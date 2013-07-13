@@ -12,6 +12,20 @@ def view_all_events():
     html = render_template("events.html", posts=posts)
     return html
 
+# ADD USER
+@app.route("/register")
+def view_add_user_form():
+    html = render_template("add_user.html")
+    return html
+
+@app.route("/add_new_user")
+def add_user():
+    model.connect_to_db()
+    email = request.args.get("email")
+    password = request.args.get("password")
+    user = model.add_new_user(email, password)
+    return "Successfully added a user!"
+
 # ADD EVENT
 @app.route("/add_event")
 def view_add_event_form():
