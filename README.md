@@ -41,3 +41,6 @@ Webpages Required:
 
 Concepts to Tackle: 
 * User Authentication
+
+The morning demo app built by Christian: 
+https://github.com/chriszf/demo_app
