@@ -3,11 +3,16 @@
 {% block body %}
 
     <b>Hackbrights!</b> You can <a href="/add_event">add an event</a>, but first <a href="/register">register</a>.<br />
-    <h1>Bright Events</h1>
-    {% for post in posts %}
-        <h2>{{ post[1] }}</h2> <!-- this is the post title --> 
+    <h1>Bright Events for Voting!</h1>
+    <blockquote><hr>
+        {% for post in posts %}
+        <h2>Event: {{ post[1] }}</h2> <!-- this is the post title --> 
         {{ post[2] }}<br/> <!-- this is the post body -->
-    {% endfor %}
+        <small><em>Current HB Popularity Index: x</em><br /> <!-- count the votes -->
+        <img src="/static/images/upvote.jpg" style="width:35px; margin-right:7px;" align="left"><b>Your vote for {{ post[1] }}?</b><br /><a href="">Let's Go!</a> | <a href="">No, thanks.</a></small>
+        <hr>
+        {% endfor %}
+    </blockquote>
     <br />
     <b>Still don't see what you're looking for?</b> <a href="/add_event">Add your event here for Brightlings!</a>
 
