@@ -34,7 +34,8 @@ class Post(object):
 
     def get_votes(self):
         query = "SELECT SUM (value) FROM Votes WHERE post_id=?"
-        vote = DB.execute(query, (self.id),)
+        vote = DB.execute(query, (self.id)) # ValueError: parameters are of unsuported type
+        # need to convert database output (SUM (1) | --- | 1) into something returnable
         return vote
 
 def add_new_post(title, body, user_id, datestamp):
